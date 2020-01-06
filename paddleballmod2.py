@@ -79,7 +79,7 @@ while 1:
         ball.draw()
         paddle.draw()
     else:
-        canvas.create_text(0, 0, 'GAME OVER!' font='Times')
+        canvas.create_text(0, 0, text='GAME OVER!', fill='red', font='Times')
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
