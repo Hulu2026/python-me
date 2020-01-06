@@ -47,7 +47,6 @@ class Paddle:
         self.canvas_width = self.canvas.winfo_width()
         self.canvas.bind_all('<KeyPress-Left>', self.turn_left)
         self.canvas.bind_all('<KeyPress-Right>', self.turn_right)
-        self.canvas.bind_all('<Button-1>', self.start_game)
 
     def draw(self):
         self.canvas.move(self.id, self.x, 0)
@@ -62,9 +61,6 @@ class Paddle:
 
     def turn_right(self, evt):
         self.x = 2
-
-    def start_game(self, evt):
-        self.start = True
 
 tk = Tk()
 tk.title("Game")
@@ -82,6 +78,8 @@ while 1:
     if ball.hit_bottom == False and paddle.start == True:
         ball.draw()
         paddle.draw()
+    else:
+        canvas.create_text(0, 0, 'GAME OVER!' font='Times')
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
